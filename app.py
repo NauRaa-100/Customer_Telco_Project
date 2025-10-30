@@ -8,8 +8,13 @@ st.title("📞 Telco Customer Churn Prediction App")
 st.write("Predict whether a customer will churn (leave) based on their service details.")
 
 # ==== Load model and scaler ====
-scaler = joblib.load('scaler.pkl')
-model = joblib.load('best_model_XGBoost.pkl') 
+import os
+
+# ==== Load model and scaler safely ====
+base_path = os.path.dirname(__file__)
+scaler = joblib.load(os.path.join(base_path, 'scaler.pkl'))
+model = joblib.load(os.path.join(base_path, 'best_model_XGBoost.pkl'))
+
 # ==== Input features ====
 st.subheader("🔹 Enter Customer Info:")
 
@@ -53,3 +58,4 @@ if st.button("Predict Churn"):
         st.error("⚠️ This customer is likely to CHURN!")
     else:
         st.success("✅ This customer is likely to stay.")
+
