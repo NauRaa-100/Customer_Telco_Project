@@ -8,6 +8,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import streamlit
 sns.set_style("whitegrid")
 from sklearn.model_selection import train_test_split, GridSearchCV, cross_val_score
 from sklearn.preprocessing import StandardScaler
@@ -185,3 +186,4 @@ plt.figure(figsize=(8,6))
 sns.barplot(x=importances.values[:15], y=importances.index[:15])
 plt.title("Top 15 Feature Importances (RandomForest on train)")
 plt.show()
+
